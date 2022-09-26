@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const routes = [
@@ -13,6 +13,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "store" */ '../views/StoreView.vue')
   },
   {
+    path: '/unidade',
+    name: 'unit',
+    component: () => import(/* webpackChunkName: "unit" */ '../views/SelectUnitView.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -23,7 +28,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

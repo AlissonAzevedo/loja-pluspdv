@@ -1,47 +1,86 @@
 <template>
-  <div class="w-full flex flex-col h-screen justify-center items-center bg-gradient-to-r from-[#3F4C6B] to-[#606C88]">
-    <div class="flex flex-col w-full justify-center items-center text-center">
-      <img alt="PlusPDV logo" src="../assets/img/PlusPDV_logo.png" class="w-[128px] h-[96px]">
-      <h1 class="text-3xl text-white mt-6 px-22">Olá, seja bem-vindo.</h1>
-      <h3 class="text-white mx-4 text-base mt-6">Antes de continuarmos, selecione uma de nossas unidades.</h3>
+  <div class="w-full flex flex-col justify-start items-center bg-gradient-to-r from-[#3F4C6B] to-[#606C88] ">
+    <div class="w-full">
+      <img src="../assets/img/home-banner.png" alt="banner" class="w-full">
     </div>
-    <div class="w-full flex flex-col justify-center items-center mt-8">
-      <StoreOption 
-        v-for="store in stores" 
-        :key="store.id" 
-        :name="store.name" 
-        :street="store.street" 
-        :number="store.number"
-        :slug="store.slug"
-        />
+    <div class="w-full flex justify-center items-center my-6">
+      <div class="w-full flex justify-start items-center border-[#E74845] bg-white rounded-md h-[45px] mx-5">
+        <MagnifyingGlassIcon class="w-4 h-4 text-[#395BB9] mx-2"/>
+        <input 
+          type="text" 
+          class="bg-transparent border-none ml-2 focus:outline-none" 
+          placeholder="Digite a busca aqui"
+          v-model="search"
+          >
+      </div>
+    </div>
+    <div class="w-full mb-14" v-if="this.categories != []">
+      <!-- <div v-for="category in filteredProducts" :key="category.id">
+        {{category.description}}
+      </div> -->
+      <CarouselCategory
+        v-for="category in filteredProducts"
+        :key="category.id"
+        :name="category.description"
+        :products="category.products"
+        
+      />
+      <!-- <CarouselCategory/> -->
+    </div>
+    <div v-else class="w-full justify-center items-center flex flex-col">
+      <img src="../assets/img/nocontent.png" alt="nocontent" class="w-1/2">
+      <h1 class="text-white text-md mt-6">Não encontramos nenhum resultado.</h1>
     </div>
   </div>
+  <BottonNavigationBar />
 </template>
 
 <script>
 // @ is an alias to /src
-import StoreOption from '@/components/StoreOption'
-import { getStores } from '@/services/store.service'
 
+
+import {MagnifyingGlassIcon} from '@heroicons/vue/20/solid'
+import {getCategorias} from '@/services/store.service'
+import CarouselCategory from '@/components/CarouselCategory'
+import BottonNavigationBar from '@/components/BottonNavigationBar'
 export default {
   name: 'HomeView',
   components: {
-    StoreOption,
+    BottonNavigationBar,
+    MagnifyingGlassIcon,
+    CarouselCategory,
+    
   },
   data() {
     return {
-      stores: []
+      search: '',
+      store: this.$store.getters.getStore,
+      categories: [],
     }
   },
   methods: {
   },
-  created() {
-    const getAllStores = async () => {
-      const response = await getStores()
-      this.stores = response.stores
-      // console.log(response.stores)
+  computed: {
+    filteredProducts() {
+      return this.categories.filter(category => {
+        return category.description.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
-    getAllStores()
+  },
+  created() {
+    const getProducts = async () => {
+      if(this.$store.getters.getStore !== '') {
+        const response = await getCategorias(this.store)
+        this.categories = response
+      }
+      else {
+        this.$router.push('/unidade')
+      }
+      // console.log(this.$store.getters.getStore)
+      // console.log(this.categories)
+    }
+    getProducts()
   }
+
 }
 </script>

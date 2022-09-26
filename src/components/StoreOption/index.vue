@@ -1,6 +1,6 @@
 <template>
     <div class="sm:w-[382px] sm:h-[76px] w-[320px] h-[76px] rounded-lg bg-white my-2 flex items-center justify-center">
-        <router-link :to="slug" class="w-full">
+        <!-- <router-link :to="slug" class="w-full"> -->
             <div class="w-full flex items-center justify-around">
                 <MapPinIcon class="w-6 text-[#395BB9] "/>
                 <div class="w-3/4 pl-2">
@@ -9,7 +9,7 @@
                 </div>
                 <ChevronRightIcon class="w-8 text-[#E74845]"/>
             </div>
-        </router-link>
+        <!-- </router-link> -->
     </div>
 </template>
 

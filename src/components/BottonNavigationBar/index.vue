@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-[52px] absolute inset-x-0 bottom-0 bg-white flex justify-around items-center">
+    <div class="w-full h-[52px] fixed inset-x-0 bottom-0 bg-white flex justify-around items-center z-50">
         <router-link 
             to="/" 
             class="w-full flex flex-col items-center"
