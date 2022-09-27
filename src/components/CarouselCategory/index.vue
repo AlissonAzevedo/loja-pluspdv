@@ -7,10 +7,10 @@
             <CardProduct 
               v-for="product in products" 
               :key="product.id"
-              :title="product.description"
+              :title="product.short_description"
               :price="product.price"
               :img="product.images[0].image"
-
+              :id="product.id"
               />
         </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen bg-gradient-to-r from-[#3F4C6B] to-[#606C88]">
+  <div class="w-full bg-gradient-to-r from-[#3F4C6B] to-[#606C88]">
     <router-view/>
   </div>
 </template>
