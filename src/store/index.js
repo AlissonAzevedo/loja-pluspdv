@@ -15,6 +15,9 @@ export default createStore({
     }
   },
   actions: {
+    setStore({ commit }, payload) {
+      commit('setStore', payload)
+    }
   },
   modules: {
   }

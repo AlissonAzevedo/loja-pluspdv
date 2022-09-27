@@ -36,7 +36,7 @@
     },
     methods: {
       selectStore(slug) {
-        this.$store.commit('setStore', slug)
+        this.$store.dispatch('setStore', slug)
         this.$router.push('/')
         // console.log(this.$store.getters.getStore)
       }

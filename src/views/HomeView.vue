@@ -14,22 +14,17 @@
           >
       </div>
     </div>
-    <div class="w-full mb-14" v-if="this.categories != []">
-      <!-- <div v-for="category in filteredProducts" :key="category.id">
-        {{category.description}}
-      </div> -->
+    <div class="w-full justify-center items-center flex flex-col" v-if="this.filteredProducts.length < 1">
+      <img src="../assets/img/nocontent.png" alt="nocontent" class="w-1/2">
+      <h1 class="text-white text-md mt-6">Não encontramos nenhum resultado.</h1>
+    </div>
+    <div class="w-full mb-14">      
       <CarouselCategory
         v-for="category in filteredProducts"
         :key="category.id"
         :name="category.description"
-        :products="category.products"
-        
+        :products="category.products"    
       />
-      <!-- <CarouselCategory/> -->
-    </div>
-    <div v-else class="w-full justify-center items-center flex flex-col">
-      <img src="../assets/img/nocontent.png" alt="nocontent" class="w-1/2">
-      <h1 class="text-white text-md mt-6">Não encontramos nenhum resultado.</h1>
     </div>
   </div>
   <BottonNavigationBar />
@@ -64,7 +59,11 @@ export default {
     filteredProducts() {
       return this.categories.filter(category => {
         return category.description.toLowerCase().includes(this.search.toLowerCase())
-      })
+      }
+      )
+    },
+    filteredData(){
+      return this.filteredProducts
     }
   },
   created() {
@@ -76,11 +75,8 @@ export default {
       else {
         this.$router.push('/unidade')
       }
-      // console.log(this.$store.getters.getStore)
-      // console.log(this.categories)
     }
     getProducts()
-  }
-
+  },
 }
 </script>
