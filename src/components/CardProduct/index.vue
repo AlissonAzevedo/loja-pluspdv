@@ -4,26 +4,28 @@
             <img :src="this.img" alt="img-product" class="min-w-[120px] max-w-[120px] h-[120px] rounded-lg">
             <div class="w-full my-2 text-start">
                 <h2 class="text-white text-sm font-normal">{{title}}</h2>
-                <p class="text-white text-xs font-light">{{price}}</p>
+                <p class="text-white text-xs font-light">{{formatCurrency(price)}}</p>
             </div>
         </router-link>
     </div>
 </template>
 
 <script>
+import { formatCurrency } from '@/Utils/formatCurrency';
+
 export default {
     name: 'CardProduct',
     components: {
     },
     data() {
         return {
-            
+
         }
     },
     props: {
         price: {
-            type: String,
-            default: 'R$ 23,70'
+            type: Number,
+            default: 0
         },
         title: {
             type: String,
@@ -36,6 +38,11 @@ export default {
         id: {
             type: Number,
             default: 9999
+        }
+    },
+    computed: {
+        formatCurrency() {
+            return formatCurrency;
         }
     },
 }

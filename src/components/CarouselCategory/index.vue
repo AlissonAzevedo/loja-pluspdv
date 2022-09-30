@@ -3,14 +3,15 @@
         <div class="w-full items-center justify-start">
             <p class="text-white text-xs">{{name}}</p>
         </div>
-        <div class="w-full flex overflow-auto items-start justify-between">
+        <div class="w-full flex carousel-daisyui carousel-center max-w-md items-start">
             <CardProduct 
               v-for="product in products" 
               :key="product.id"
               :title="product.short_description"
-              :price="product.price"
+              :price="product.stocks[0].unit_price"
               :img="product.images[0].image"
               :id="product.id"
+              class="carousel-item"
               />
         </div>
     </div>
@@ -32,8 +33,7 @@
       },
       products:{
         type: Array,
-        // eslint-disable-next-line vue/require-valid-default-prop
-        default: []
+        default: () => {[]}
       }
     },
     data() {

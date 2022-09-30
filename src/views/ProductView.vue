@@ -1,9 +1,14 @@
 <template>
     <!-- <img src="../assets/img/img-product.png" :alt="this.product.short_description" class="w-full h-[240px]"> -->
-    <div class=" flex flex-col justify-center items-center">
+    <div class="w-full flex flex-col justify-center items-center">
+        <div class="fixed inset-x-0 top-4 z-50 px-4">
+            <router-link to="/">
+                <ChevronLeftIcon class="w-8 text-[#263E80]" />
+            </router-link>
+        </div>
         <carousel :items-to-show="1" class="w-full h-[240px]">
-            <slide v-for="img in this.product.images" :key="img" class="w-full">
-                <img :src="img.image" :alt="this.product.short_description" class="w-full h-[240px]">
+            <slide v-for="img in this.product.images" :key="img" class="w-full bg-white">
+                <img :src="img.image" :alt="this.product.short_description" class=" min-h-[240px] h-[240px]">
             </slide>
             <template #addons>
             <!-- <navigation /> -->
@@ -27,22 +32,26 @@
             <h2 class="text-white text-sm font-normal mt-2">Descrição</h2>
             <h2 class="text-white text-sm font-normal my-4">{{this.product.description}}</h2>
         </div>
-        <div class="w-full flex flex-col justify-center items-start mb-16">
+        <div class="w-full flex flex-col justify-center items-start pb-16">
             <h2 class="text-white text-sm mt-6 py-2">Você quer adicionar alguma observação?</h2>
             <input type="text" class="w-full h-12 rounded-md px-2 bg-white border-none focus:outline-none "
                 placeholder="Digite aqui" v-model="note">
         </div>
     </div>
-    <BottonSheet :price="this.product.price" />
+    <BottonSheet :product="this.product" :note="this.note" :price="this.price"/>
 </template>
 
 <script>
+import { ChevronLeftIcon } from '@heroicons/vue/20/solid'
 import BottonSheet from '@/components/BottonSheet'
 import { getProducts } from '@/services/product.service';
 import { Carousel, Slide, Pagination, } from 'vue3-carousel';
+
+import { mapGetters } from "vuex"
 export default {
     name: 'ProductView',
     components: {
+        ChevronLeftIcon,
         BottonSheet,
         Carousel,
         Slide,
@@ -53,13 +62,25 @@ export default {
         return {
             product: {},
             note: '',
+            // price: this.product.stocks[0].unit_price,
         }
     },
-    methods: {
+    computed: {
+        ...mapGetters(['getStore']),
+        price () {
+            const price = undefined
+            if (this.product?.stocks?.length >= 1) {
+                return this.product.stocks[0].unit_price
+            }
+            else {
+                return price
+            }
+            //
+        },
     },
     created() {
         const getProduct = async () => {
-            if (this.$store.getters.getStore !== '' && this.$route.params.id !== undefined) {
+            if (this.getStore !== '' && this.$route.params.id !== undefined || '') {
                 const response = await getProducts(this.$route.params.id)
                 this.product = response[0]
             }
