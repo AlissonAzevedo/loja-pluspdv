@@ -51,7 +51,6 @@ export default {
         addCart() {
             const storedCart = JSON.parse(localStorage.getItem('cart'))
 
-
             this.orderItem = {
                 id: this.product.id,
                 short_description: this.product.short_description,
@@ -69,9 +68,12 @@ export default {
                 localStorage.setItem('cart', JSON.stringify([this.orderItem]))
             }
             // console.log(JSON.stringify(this.orderItem))
-            // this.$store.dispatch('setCart', JSON.stringify(this.orderItem))
-            // localStorage.setItem("cart", JSON.stringify(this.orderItem));
-            // this.SetCart(JSON.stringify(this.orderItem))  
+            this.$toast.open({
+                message: 'Produto adicionado ao carrinho',
+                type: 'success',
+                position: 'top',
+                duration: 4000
+            }) 
             this.$router.push('/carrinho')
         }
     },

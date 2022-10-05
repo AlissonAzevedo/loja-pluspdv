@@ -1,8 +1,10 @@
 <template>
-    <div class="w-full h-[100vh] px-4 flex flex-col justify-center items-center">
+    <div class="w-full h-full px-4 flex flex-col justify-between items-center">
         <div class="w-full flex flex-col justify-center items-start my-4">
             <h2 class="text-white text-2xl">Carrinho</h2>
         </div>
+    </div>
+    <div class="w-full h-screen px-4 flex flex-col justify-between items-center" v-if="this.cart.length >= 1">
         <div class="w-full flex flex-col justify-between items-center divide-y divide-[#343435]">
             <div class="w-full flex flex-col justify-center items-center">
                 <!-- CardItem -->
@@ -35,7 +37,7 @@
                     </div>
                     <div class="w-full flex justify-between">
                         <h2 class="text-white text-xl">Valor total</h2>
-                        <h2 class="text-white text-xl">R$ 0,00</h2>
+                        <h2 class="text-white text-xl">{{formatCurrency(totalAmount)}}</h2>
                     </div>
                     <button class="w-full h-12 bg-[#E74845] rounded mt-6 text-white">
                         Finalizar compra
@@ -45,6 +47,12 @@
         </div>
         <BottonNavigationBar />
     </div>
+    <div class="w-full h-screen flex flex-col justify-center items-center" v-else>
+        <img src="../assets/img/nocart.png" alt="nocart" class="w-56">
+        <h2 class="text-white text-base mt-6">Carrinho vazio</h2>
+        <BottonNavigationBar />
+    </div>
+
 </template>
 
 <script>
@@ -60,6 +68,9 @@ export default {
     data() {
         return {
             cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
+            // totalAmount: 0,
+            shippingPrice: 0,
+
         }
     },
     methods: {
@@ -75,11 +86,14 @@ export default {
         },
         formatCurrency() {
             return formatCurrency
-        }
+        },
+        totalAmount() {
+            return this.total + this.shippingPrice
+        },
+        // shippingPrice() {
+        //     return this.total > 250 ? 0 : 10
+        // }
     },
-    created() {
-        this.total
-    }
 }
 </script>
 

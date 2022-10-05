@@ -3,7 +3,23 @@
         <div class="w-full items-center justify-start">
             <p class="text-white text-xs">{{name}}</p>
         </div>
-        <div class="w-full flex carousel-daisyui carousel-center max-w-md items-start">
+        <!-- <div class="w-full flex items-center">
+          <Carousel :items-to-show="1">
+            <Slide v-for="product in products"  :key="product.id">
+                <CardProduct 
+                  :title="product.short_description"
+                  :price="product.stocks[0].unit_price"
+                  :img="product.images[0].image"
+                  :id="product.id"
+                  />  
+            </Slide>
+
+            <template #addons>
+              <Navigation />
+            </template>
+          </Carousel>
+        </div> -->
+        <div class="w-full flex carousel-daisyui carousel-center items-start">
             <CardProduct 
               v-for="product in products" 
               :key="product.id"
@@ -21,10 +37,14 @@
   // @ is an alias to /src
   
   import CardProduct from '@/components/CardProduct'
+  // import { Carousel, Slide } from 'vue3-carousel';
   export default {
     name: 'CarouselCategory',
     components: {
-        CardProduct, 
+        CardProduct,
+        // Carousel,
+        // Slide,
+        // Navigation, 
     },
     props: {
       name:{

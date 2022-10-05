@@ -11,20 +11,24 @@
         </router-link>
       
         <router-link to="/carrinho" class="w-full flex flex-col items-center">
-            <ShoppingCartIcon class="w-6 h-6 text-[#395BB9]"/>
+            <div class="w-full flex justify-center">
+                <ShoppingCartIcon class="w-6 h-6 text-[#395BB9]"/>
+                <span class="fixed ml-8 bg-[#E74845] rounded-full text-white text-2xs px-2" v-if="this.cart.length >= 1">
+                    {{this.cart.length}}
+                </span>
+            </div>
             <h3 class="text-xs text-[#395BB9]">
              Carrinho
             </h3>
         </router-link>
 
-        <router-link to="/conta" class="w-full flex flex-col items-center">
+        <router-link to="/opcoes" class="w-full flex flex-col items-center">
             <UserIcon class="w-6 h-6 text-[#395BB9]"/>
             <h3 class="text-xs text-[#395BB9]">
-                Minha conta
+                Mais opções
             </h3>
         </router-link>
     </div>
-    <!-- text-[#395BB9] -->
 </template>
 
 <script>
@@ -41,7 +45,7 @@ export default {
 
     data (){
         return{
-            
+            cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
         }
     },
     methods:{

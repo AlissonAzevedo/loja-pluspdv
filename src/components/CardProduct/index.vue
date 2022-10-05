@@ -19,7 +19,7 @@ export default {
     },
     data() {
         return {
-
+            select_quantity: 1,
         }
     },
     props: {
@@ -40,10 +40,16 @@ export default {
             default: 9999
         }
     },
+    methods: {
+        quantity(){
+
+        }
+    },
     computed: {
         formatCurrency() {
             return formatCurrency;
-        }
+        },
+        
     },
 }
 </script>

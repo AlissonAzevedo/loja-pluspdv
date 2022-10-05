@@ -26,7 +26,22 @@ const routes = [
     path: '/conta',
     name: 'account',
     component: () => import(/* webpackChunkName: "about" */ '../views/AccountView.vue')
-  }
+  },
+  {
+    path: '/conta/entrar',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
+  },
+  {
+    path: '/conta/cadastro',
+    name: 'register',
+    component: () => import(/* webpackChunkName: "about" */ '../views/RegisterView.vue')
+  },
+  // {
+  //   path: '/opcoes',
+  //   name: 'options',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/AccountView.vue')
+  // }
 ]
 
 const router = createRouter({
