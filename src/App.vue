@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex flex-col justify-center items-center bg-gradient-to-r from-[#3F4C6B] to-[#606C88]">
+  <div class="w-full min-h-screen flex flex-col justify-start items-center bg-gradient-to-r from-[#3F4C6B] to-[#606C88]">
     <router-view/>
   </div>
 </template>
