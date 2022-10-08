@@ -13,7 +13,7 @@
         <router-link to="/carrinho" class="w-full flex flex-col items-center">
             <div class="w-full flex justify-center">
                 <ShoppingCartIcon class="w-6 h-6 text-[#395BB9]"/>
-                <span class="fixed ml-8 bg-[#E74845] rounded-full text-white text-2xs px-2" v-if="this.cart.length >= 1">
+                <span class="fixed ml-8 bg-[#E74845] rounded-full text-white text-xs px-2" v-if="this.cart.length >= 1">
                     {{this.cart.length}}
                 </span>
             </div>

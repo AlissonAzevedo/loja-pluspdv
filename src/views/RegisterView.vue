@@ -140,7 +140,7 @@ export default {
                 })
         },
         async createAccont() {
-            const storedConsumer = JSON.parse(localStorage.getItem('cart'))
+            const storedConsumer = JSON.parse(localStorage.getItem('consumer'))
             if (this.passwordMatch == true) {
                 const data = {
                     "consumer": {
@@ -181,6 +181,7 @@ export default {
                     } else {
                         localStorage.setItem('consumer', JSON.stringify(response.data))
                     }
+                    this.$router.push('/checkout')
                 }
                 else {
                     this.$toast.open({

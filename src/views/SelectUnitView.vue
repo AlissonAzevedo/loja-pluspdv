@@ -36,7 +36,17 @@
     },
     methods: {
       selectStore(slug) {
-        this.$store.dispatch('setStore', slug)
+        const storedStore = localStorage.getItem('store')
+        if (storedStore) {
+                localStorage.setItem(
+                    'store',
+                    ...storedStore, slug
+                )
+            } else {
+                localStorage.setItem('store', slug)
+            }
+        // localStorage.setItem('store', slug)
+        // this.$store.dispatch('setStore', slug)
         this.$router.push('/')
         // console.log(this.$store.getters.getStore)
       }

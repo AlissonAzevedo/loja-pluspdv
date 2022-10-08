@@ -1,6 +1,7 @@
 <template>
-  <div class="w-full h-full flex flex-col justify-between items-center ">
-    <img src="../assets/img/home-banner.png" alt="banner" class="w-full">
+  <div class="w-full flex flex-col justify-between items-center ">
+    <!-- <img src="../assets/img/home-banner.png" alt="banner" class="w-full"> -->
+    <img :src="this.infoStore.banner" alt="banner" class="w-full h-[160px]">
     <div class="w-full flex justify-center items-center my-6">
       <div class="w-full flex justify-start items-center border-[#E74845] bg-white rounded-md h-[45px] mx-5">
         <MagnifyingGlassIcon class="w-4 h-4 text-[#395BB9] mx-2" />
@@ -23,27 +24,51 @@
 <script>
 // @ is an alias to /src
 
-
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 import { getCategorias } from '@/services/product.service'
+import { getInfoStore } from '@/services/store.service'
 import CarouselCategory from '@/components/CarouselCategory'
 import BottonNavigationBar from '@/components/BottonNavigationBar'
+
 export default {
   name: 'HomeView',
   components: {
     BottonNavigationBar,
     MagnifyingGlassIcon,
     CarouselCategory,
-
   },
   data() {
+    const search = ''
+    const storeOption = localStorage.getItem('store')
+    const categories = []
+    const infoStore = {}
     return {
-      search: '',
-      store: this.$store.getters.getStore,
-      categories: [],
+      search,
+      storeOption,
+      categories,
+      infoStore,
     }
   },
   methods: {
+    async getStore() {
+      if (this.storeOption) {
+        const response = await getInfoStore(this.storeOption)
+        this.infoStore = response
+        localStorage.setItem('InfoStore', JSON.stringify(response))
+      }
+      else {
+        this.$router.push('/unidade')
+      }
+    },
+    async getCategories() {
+      if (this.storeOption) {
+        const response = await getCategorias(this.storeOption)
+        this.categories = response
+      }
+      else {
+        this.$router.push('/unidade')
+      }
+    },
   },
   computed: {
     filteredProducts() {
@@ -57,16 +82,8 @@ export default {
     }
   },
   created() {
-    const getProducts = async () => {
-      if (this.$store.getters.getStore !== '') {
-        const response = await getCategorias(this.store)
-        this.categories = response
-      }
-      else {
-        this.$router.push('/unidade')
-      }
-    }
-    getProducts()
+    this.getStore(this.storeOption)
+    this.getCategories()
   },
 }
 </script>
