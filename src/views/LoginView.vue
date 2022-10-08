@@ -23,9 +23,9 @@
                 </router-link>
             </span>
             <button class="w-full">
-                <h3 class="text-sm text-white bg-[#E74845] py-4 w-full text-center rounded" @click="loginAccont">
+                <button :disabled="!IsDisabled" class="text-sm text-white bg-[#E74845] py-4 w-full text-center rounded disabled:bg-[#E74845]/40" @click="loginAccont">
                     Próximo
-                </h3>
+                </button>
             </button>
         </div>
 
@@ -75,8 +75,30 @@ export default {
                     duration: 4000
                 })
                 router.push('/checkout')
+            } else if(statusCode == 403) {
+                this.$toast.open({
+                    message: 'Erro ao logar, verifiques os dados',
+                    type: 'error',
+                    position: 'top',
+                    duration: 4000
+                })
+            }
+            else {
+                this.$toast.open({
+                    message: 'Erro, entre em contato com o suporte',
+                    type: 'error',
+                    position: 'top',
+                    duration: 4000
+                })
             }
 
+        }
+    },
+    computed: {
+        IsDisabled(){
+            let fieldsIsValidate = false
+            this.user.username.length > 0 && this.user.password.length > 0 ? fieldsIsValidate = true : fieldsIsValidate = false
+            return fieldsIsValidate
         }
     }
 }

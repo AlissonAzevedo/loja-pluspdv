@@ -2,7 +2,7 @@
     <div class="w-full h-[52px] fixed inset-x-0 bottom-0 bg-[#E74845] flex justify-between items-center z-50 px-4">
         <div class=" flex flex-col justify-center items-start">
             <span class="text-white text-sm">{{formatCurrency(price)}}</span>
-            <span class="text-white text-xs font-superlight">Ou até 3x de {{formatCurrency(installmentsValue)}} sem
+            <span class="text-white text-xs font-superlight">Ou até {{this.infoStore.quantidade_max_parcelamento}}x de {{formatCurrency(installmentsValue)}} sem
                 juros</span>
         </div>
         <div class=" flex justify-center items-center">
@@ -13,12 +13,14 @@
 
 <script>
 import { formatCurrency } from '@/Utils/formatCurrency';
-import { mapMutations } from 'vuex'
 export default {
     name: 'BottonSheet',
     data() {
+        const orderItem = {}
+        const infoStore = JSON.parse(localStorage.getItem('InfoStore'))
         return {
-            orderItem: {}
+            orderItem,
+            infoStore
         }
     },
     props: {
@@ -41,14 +43,13 @@ export default {
     },
     computed: {
         installmentsValue() {
-            return this.price / 3
+            return this.price / this.infoStore.quantidade_max_parcelamento
         },
         formatCurrency() {
             return formatCurrency
         },
     },
     methods: {
-        ...mapMutations(["setCart"]),
         addCart() {
             const storedCart = JSON.parse(localStorage.getItem('cart'))
 
@@ -68,7 +69,6 @@ export default {
             } else {
                 localStorage.setItem('cart', JSON.stringify([this.orderItem]))
             }
-            // console.log(JSON.stringify(this.orderItem))
             this.$toast.open({
                 message: 'Produto adicionado ao carrinho',
                 type: 'success',
@@ -77,7 +77,7 @@ export default {
             }) 
             this.$router.push('/carrinho')
         }
-    },
+    }
 }
 </script>
 
