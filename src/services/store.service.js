@@ -9,3 +9,9 @@ export async function getStoreBySlug(slug) {
   const response = await api.get(`/lojas/${slug}/`);
   return response.data;
 }
+
+export async function getInfoStore(slug) {
+  const response = await api.get(`/lojas/${slug}/`);
+  // console.log(response.data);
+  return response.data;
+}

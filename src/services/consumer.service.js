@@ -44,3 +44,13 @@ export function VerifyLogin() {
     return false;
   }
 }
+
+export async function LogoutConsumer() {
+  localStorage.removeItem("consumer");
+  localStorage.removeItem("id_consumer");
+}
+
+export async function getAddressCosumer(id_consumer) {
+  const response = await api.get(`/enderecos/?consumer__id=${id_consumer}`)
+  return response
+}

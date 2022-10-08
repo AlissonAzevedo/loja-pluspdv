@@ -2,7 +2,7 @@
     <div class="w-full h-[52px] fixed inset-x-0 bottom-0 bg-[#E74845] flex justify-between items-center z-50 px-4">
         <div class=" flex flex-col justify-center items-start">
             <span class="text-white text-sm">{{formatCurrency(price)}}</span>
-            <span class="text-white text-xs font-superlight">Ou até 12x de {{formatCurrency(installmentsValue)}} sem
+            <span class="text-white text-xs font-superlight">Ou até 3x de {{formatCurrency(installmentsValue)}} sem
                 juros</span>
         </div>
         <div class=" flex justify-center items-center">
@@ -33,18 +33,19 @@ export default {
         price: {
             type: Number,
             default: 0
+        },
+        quantity: {
+            type: Number,
+            default: 0
         }
     },
     computed: {
-        // price() {
-        //     return this.product.stocks[0].unit_price
-        // },
         installmentsValue() {
-            return this.price / 12
+            return this.price / 3
         },
         formatCurrency() {
             return formatCurrency
-        }
+        },
     },
     methods: {
         ...mapMutations(["setCart"]),
@@ -55,8 +56,8 @@ export default {
                 id: this.product.id,
                 short_description: this.product.short_description,
                 images: this.product.images[0].image,
-                unit_price: this.price,
-                quantity: 1,
+                price: this.price,
+                quantity: this.quantity,
                 note: this.note
             }
             if (storedCart) {
