@@ -99,7 +99,7 @@ export default {
     },
     computed: {
         total() {
-            return this.cart.reduce((acc, item) => acc + item.price, 0)
+            return this.cart.reduce((acc, item) => acc + item.product_total_price, 0)
         },
         formatCurrency() {
             return formatCurrency

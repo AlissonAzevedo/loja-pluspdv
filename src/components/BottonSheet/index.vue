@@ -39,6 +39,10 @@ export default {
         quantity: {
             type: Number,
             default: 0
+        },
+        product_total_price: {
+            type: Number,
+            default: 0
         }
     },
     computed: {
@@ -57,6 +61,7 @@ export default {
                 id: this.product.id,
                 short_description: this.product.short_description,
                 images: this.product.images[0].image,
+                product_total_price: this.product_total_price,
                 price: this.price,
                 quantity: this.quantity,
                 note: this.note

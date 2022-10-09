@@ -46,7 +46,7 @@
                 placeholder="Digite aqui" v-model="note">
         </div>
     </div>
-    <BottonSheet :product="this.product" :note="this.note" :price="this.price" :quantity="this.quantity"/>
+    <BottonSheet :product="this.product" :note="this.note" :price="this.price" :product_total_price="this.product_total_price" :quantity="this.quantity"/>
 </template>
 
 <script>
@@ -92,13 +92,24 @@ export default {
         price () {
             const price = undefined
             if (this.product?.stocks?.length >= 1) {
+                return this.product.stocks[0].unit_price
+            }
+            else {
+                return price
+            }
+            //
+        },
+        product_total_price () {
+            const price = undefined
+            if (this.product?.stocks?.length >= 1) {
                 return this.product.stocks[0].unit_price * this.quantity
             }
             else {
                 return price * this.quantity
             }
             //
-        },
+        }
+        
     },
     created() {
         const getProduct = async () => {

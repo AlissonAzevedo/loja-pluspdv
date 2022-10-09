@@ -35,9 +35,10 @@ export async function LoginConsumer(loginConsumerData) {
 
 export function VerifyLogin() {
   let consumer = localStorage.getItem("consumer");
+  let consumerId = localStorage.getItem("id_consumer");
 
   if (consumer) {
-    if (consumer.id) {
+    if (consumerId) {
       return true;
     }
   } else {
