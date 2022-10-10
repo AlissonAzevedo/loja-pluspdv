@@ -55,3 +55,7 @@ export async function getAddressCosumer(id_consumer) {
   const response = await api.get(`/enderecos/?consumer__id=${id_consumer}`)
   return response
 }
+export async function getOrdersCosumer(id_consumer) {
+  const response = await api.get(`/pedidos/?consumer__id=${id_consumer}`)
+  return response
+}

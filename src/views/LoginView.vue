@@ -39,7 +39,6 @@ import InputPassword from '../components/InputPassword'
 import { LoginConsumer } from '@/services/consumer.service'
 
 import { mask } from 'vue-the-mask'
-import router from '@/router'
 export default {
     name: 'LoginView',
     data() {
@@ -74,7 +73,7 @@ export default {
                     position: 'top',
                     duration: 4000
                 })
-                router.push('/checkout')
+                this.$router.push('/')
             } else if(statusCode == 403) {
                 this.$toast.open({
                     message: 'Erro ao logar, verifiques os dados',

@@ -20,33 +20,33 @@ const routes = [
   {
     path: '/carrinho',
     name: 'cart',
-    component: () => import(/* webpackChunkName: "about" */ '../views/CartView.vue')
+    component: () => import(/* webpackChunkName: "cart" */ '../views/CartView.vue')
   },
   {
     path: '/conta',
     name: 'account',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AccountView.vue')
+    component: () => import(/* webpackChunkName: "account" */ '../views/AccountView.vue')
   },
   {
     path: '/conta/entrar',
     name: 'login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/LoginView.vue')
   },
   {
     path: '/conta/cadastro',
     name: 'register',
-    component: () => import(/* webpackChunkName: "about" */ '../views/RegisterView.vue')
+    component: () => import(/* webpackChunkName: "register" */ '../views/RegisterView.vue')
   },
   {
     path: '/checkout',
     name: 'checkout',
-    component: () => import(/* webpackChunkName: "about" */ '../views/CheckoutView.vue')
+    component: () => import(/* webpackChunkName: "checkout" */ '../views/CheckoutView.vue')
   },
-  // {
-  //   path: '/opcoes',
-  //   name: 'options',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AccountView.vue')
-  // }
+  {
+    path: '/opcoes',
+    name: 'options',
+    component: () => import(/* webpackChunkName: "options" */ '../views/OptionView.vue')
+  }
 ]
 
 const router = createRouter({
