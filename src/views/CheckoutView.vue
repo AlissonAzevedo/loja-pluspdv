@@ -247,7 +247,8 @@ export default {
         }
         const IdConsumer = JSON.parse(localStorage.getItem('id_consumer'))
         const consumer = JSON.parse(localStorage.getItem('consumer'))
-        const InfoStore = localStorage.getItem('store')
+        const InfoStore = localStorage.getItem('InfoStore')
+        const store = localStorage.getItem('store')
         const carts = JSON.parse(localStorage.getItem('cart'))
         const shippingPrice = 0
         const total = 0
@@ -265,6 +266,7 @@ export default {
             IdConsumer,
             consumer,
             InfoStore,
+            store,
             shippingPrice,
             total,
             QrCodeUrl
@@ -302,18 +304,21 @@ export default {
         },
         async createRequest() {
             const request = {
-                store: this.InfoStore, // slug da loja
+                store: this.store, // slug da loja
                 consumer: this.IdConsumer, //IdConsumer
                 payment: this.payment?.methodId, //IdPayment
                 phone: this.consumer.phone, // telefone do cliente
                 total_price: this.total_price,
-                delivery: true, //Se é entraga ou não 
+                delivery: true, //Se é entrega ou não 
                 address: this.delivery?.id, //Id do endereço
+                shipping_cost: this.shippingPrice, // Preço do frete
+                status: 0, //Status do pedido => PEDIDO EM ABERTO
                 items: this.carts.map(item => {
                     return {
                         product: item.id,
                         unit_price: item.price,
-                        quantity: item.quantity
+                        quantity: item.quantity,
+                        observacao: item.note
                     }
                 })
             }
@@ -323,9 +328,11 @@ export default {
                 this.$toast.open({
                     message: 'Pedido realizado com sucesso!',
                     type: 'success',
-                    position: 'top-right',
+                    position: 'top',
                     duration: 3000
                 })
+                this.$router.push('/')
+                localStorage.removeItem("cart")
             } else {
                 this.$toast.open({
                     message: 'Erro ao realizar pedido!',

@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-[52px] fixed inset-x-0 bottom-0 bg-[#E74845] flex justify-between items-center z-50 px-4">
         <div class=" flex flex-col justify-center items-start">
-            <span class="text-white text-sm">{{formatCurrency(price)}}</span>
+            <span class="text-white text-sm">{{formatCurrency(product_total_price)}}</span>
             <span class="text-white text-xs font-superlight">Ou até {{this.infoStore.quantidade_max_parcelamento}}x de {{formatCurrency(installmentsValue)}} sem
                 juros</span>
         </div>
@@ -47,7 +47,7 @@ export default {
     },
     computed: {
         installmentsValue() {
-            return this.price / this.infoStore.quantidade_max_parcelamento
+            return this.product_total_price / this.infoStore.quantidade_max_parcelamento
         },
         formatCurrency() {
             return formatCurrency
