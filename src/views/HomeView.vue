@@ -5,7 +5,7 @@
     <div class="w-full flex justify-center items-center my-6">
       <div class="w-full flex justify-start items-center border-[#E74845] bg-white rounded-md h-[45px] mx-5">
         <MagnifyingGlassIcon class="w-4 h-4 text-[#395BB9] mx-2" />
-        <input type="text" class="bg-transparent border-none ml-2 focus:outline-none" placeholder="Digite a busca aqui"
+        <input type="text" class="bg-transparent border-none ml-2 focus:outline-none focus:ring-transparent" placeholder="Digite a busca aqui"
           v-model="search">
       </div>
     </div>
