@@ -1,5 +1,10 @@
 <template>
-    <div class="w-full h-screen flex flex-col justify-center items-center px-4">
+    <div class="w-full p-4 pt-8">
+        <router-link to="/">
+            <ChevronLeftIcon class="w-6 h-6 text-white" />
+        </router-link>
+    </div>
+    <div class="w-full h-screen flex flex-col justify-center items-center p-4">
         <h1 class="text-white text-3xl">Acesse sua conta ou cadastre-se!</h1>
         <h4 class="text-white font-light mt-8">Para continuar o processo de compra, escolha uma das opções abaixo.</h4>
         <div class="w-full flex flex-col justify-center items-center">
@@ -18,8 +23,12 @@
 </template>
 
 <script>
+import { ChevronLeftIcon } from '@heroicons/vue/20/solid'
 export default {
     name: 'RegisterView',
+    components: {
+        ChevronLeftIcon
+    },
 
 }
 </script>

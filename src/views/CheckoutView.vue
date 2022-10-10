@@ -344,7 +344,7 @@ export default {
             // console.log(response)
         },
         copy(){
-            const copyText = '00020126330014BR.GOV.BCB.PIX0111065327983395204000053039865802BR5905Loja 6008Teresina62100506Loja016304D5B6'
+            let copyText = '00020126330014BR.GOV.BCB.PIX0111065327983395204000053039865802BR5905Loja 6008Teresina62100506Loja016304D5B6'
             navigator.clipboard.writeText(copyText)
             this.$toast.open({
                 message: 'Chave copiada com sucesso!',
