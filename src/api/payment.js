@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const payment = axios.create({
-    baseURL: "https://gerarqrcodepix.com.br/api/v1"
+    baseURL: process.env.VUE_APP_PAYMENT_URL
 });
 
 export default payment;
