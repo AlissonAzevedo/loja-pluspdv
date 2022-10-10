@@ -221,6 +221,7 @@ import { truncateString } from '@/Utils/truncateString'
 export default {
     name: 'CheckoutView',
     data() {
+        const copyText = '00020126330014BR.GOV.BCB.PIX0111065327983395204000053039865802BR5905Loja 6008Teresina62100506Loja016304D5B6'
         const methodDelivery = {
             deliveryInStore: [
                 {
@@ -254,6 +255,7 @@ export default {
         const total = 0
         const QrCodeUrl = ''
         return {
+            copyText,
             methodDelivery,
             currentStep,
             delivery,
@@ -343,9 +345,8 @@ export default {
             }
             // console.log(response)
         },
-        copy(){
-            let copyText = '00020126330014BR.GOV.BCB.PIX0111065327983395204000053039865802BR5905Loja 6008Teresina62100506Loja016304D5B6'
-            navigator.clipboard.writeText(copyText)
+        async copy(){
+            await navigator.clipboard?.writeText(this.copyText)
             this.$toast.open({
                 message: 'Chave copiada com sucesso!',
                 type: 'success',
