@@ -49,7 +49,7 @@
         <BottonNavigationBar />
     </div>
     <div class="w-full flex flex-col justify-center items-center" v-else>
-        <img src="../assets/img/nocart.png" alt="nocart" class="w-56">
+        <img src="../assets/img/nocart.png" alt="nocart" class="w-56 mt-24">
         <h2 class="text-white text-base mt-6">Carrinho vazio</h2>
         <BottonNavigationBar />
     </div>
