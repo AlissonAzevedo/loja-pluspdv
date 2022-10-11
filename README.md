@@ -65,13 +65,14 @@ As telas devem consumir via API REST.
 :heavy_check_mark: Login e cadastro do consumidor;\
 :heavy_check_mark: Checkout [Remoção dos items, valor total dos pedidos, valor do frete];\
 :heavy_check_mark: Criar pedido;\
-:heavy_check_mark: Visualizar pedidos anteriores;\
+:heavy_check_mark: Visualizar pedidos anteriores;
 
 🚧 Em construção...  🚧
 <br>
+<br>
 :heavy_check_mark: Geração Qr code do PIX dinamico;\
 :heavy_check_mark: Listagem dos pedidos;\
-:heavy_check_mark: Status do pedido;\
+:heavy_check_mark: Status do pedido;
 
 ## :rocket: Tecnologias ##
 
