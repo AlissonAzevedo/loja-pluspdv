@@ -53,7 +53,13 @@ novos canais de vendas.
 Para ajudar o time comercial, você deve desenvolver uma interface Front-END. A tela deve fornecer informações úteis que
 facilitem a comunicação entre o time comercial, o cliente e sua empresa.
 As telas devem consumir via API REST.
+<br>
 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/e4L1W0xblWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<br>
 
 ## :sparkles: Features ##
 
