@@ -67,7 +67,6 @@ Caso deseje abrir no navegador vá em Configurações > Privacidade e segurança
 https://loja-pluspdv.vercel.app/
 ```
 
-<br>
 Clique em Adicionar, em seguida entre na url: 
 - [Demo](https://loja-pluspdv.vercel.app/)
 
