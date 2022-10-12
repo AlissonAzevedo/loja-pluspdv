@@ -56,9 +56,7 @@ As telas devem consumir via API REST.
 <br>
 
 <p align="center">
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/e4L1W0xblWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
-
+	<a href="[https://imgbb.com/](https://www.youtube-nocookie.com/embed/e4L1W0xblWQ)"><img src="https://i.ibb.co/b5BZXkC/Captura-de-tela-2022-10-12-134239.png" alt="Captura-de-tela-2022-10-12-134239" border="0"></a>
 <br>
 
 ## :sparkles: Features ##
