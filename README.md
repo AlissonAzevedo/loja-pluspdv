@@ -60,6 +60,14 @@ As telas devem consumir via API REST.
 	<a href="https://www.youtube-nocookie.com/embed/e4L1W0xblWQ"><img src="https://i.ibb.co/b5BZXkC/Captura-de-tela-2022-10-12-134239.png" alt="Captura-de-tela-2022-10-12-134239" border="0"></a>
 <br>
 
+##Observação
+Caso deseje abrir no navegador vá em Configurações > Privacidade e segurança > Configurações do site > Conteúdo não seguro, procure a opção "Permitir conteúdo não seguro", em seguida clique em Adicionar e cole esta url:
+```bash
+https://loja-pluspdv.vercel.app/
+```
+Clique em adicionar
+entre na url: [Demo](https://loja-pluspdv.vercel.app/)
+
 ## :sparkles: Features ##
 
 :heavy_check_mark: Lista de produtos e categorias;\
