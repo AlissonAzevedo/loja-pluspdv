@@ -54,9 +54,9 @@ Para ajudar o time comercial, você deve desenvolver uma interface Front-END. A 
 facilitem a comunicação entre o time comercial, o cliente e sua empresa.
 As telas devem consumir via API REST.
 <br>
-
+# Clique na imagem abaixo para visualizar o funcionamento da aplicação.
+<br>
 <p align="center">
-	# Clique na imagem abaixo para visualizar o funcionamento da aplicação.
 	<a href="[https://imgbb.com/](https://www.youtube-nocookie.com/embed/e4L1W0xblWQ)"><img src="https://i.ibb.co/b5BZXkC/Captura-de-tela-2022-10-12-134239.png" alt="Captura-de-tela-2022-10-12-134239" border="0"></a>
 <br>
 
