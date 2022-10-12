@@ -117,7 +117,7 @@ $ cd loja-pluspdv
 # Install dependencies
 $ yarn install
 
-# add .env
+# add .env file
 $ VUE_APP_BACKEND_URL=http://159.89.176.78:8001
 
 # Run the project
