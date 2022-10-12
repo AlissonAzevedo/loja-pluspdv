@@ -57,7 +57,7 @@ As telas devem consumir via API REST.
 ## Clique na imagem abaixo para visualizar o funcionamento da aplicação.
 <br>
 <p align="center">
-	<a href="[https://imgbb.com/](https://www.youtube-nocookie.com/embed/e4L1W0xblWQ)"><img src="https://i.ibb.co/b5BZXkC/Captura-de-tela-2022-10-12-134239.png" alt="Captura-de-tela-2022-10-12-134239" border="0"></a>
+	<a href="https://www.youtube-nocookie.com/embed/e4L1W0xblWQ"><img src="https://i.ibb.co/b5BZXkC/Captura-de-tela-2022-10-12-134239.png" alt="Captura-de-tela-2022-10-12-134239" border="0"></a>
 <br>
 
 ## :sparkles: Features ##
