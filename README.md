@@ -61,12 +61,13 @@ As telas devem consumir via API REST.
 <br>
 
 ##Observação
+<br>
 Caso deseje abrir no navegador vá em Configurações > Privacidade e segurança > Configurações do site > Conteúdo não seguro, procure a opção "Permitir conteúdo não seguro", em seguida clique em Adicionar e cole esta url:
 ```bash
 https://loja-pluspdv.vercel.app/
 ```
-Clique em adicionar
-entre na url: [Demo](https://loja-pluspdv.vercel.app/)
+<br>
+Clique em Adicionar, em seguida entre na url: [Demo](https://loja-pluspdv.vercel.app/)
 
 ## :sparkles: Features ##
 
